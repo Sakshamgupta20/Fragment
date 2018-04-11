@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements First.communi {
    static FragmentManager manager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,52 +20,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-
-    protected void onStart() {
-
-        super.onStart();
-
-        Log.i("B","on start Activity" );
-
+    public void data(String text) {
+        second sec=new second();
+        Bundle bundle=new Bundle();
+        bundle.putString("key",text);
+        sec.setArguments(bundle);
+        MainActivity.manager.beginTransaction().replace(R.id.main,sec).commit();
     }
-
-    @Override
-
-    protected void onResume() {
-
-        super.onResume();
-
-        Log.i("B","on resume Activity" );
-
-    }
-
-
-    @Override
-
-    protected void onPause() {
-
-        super.onPause();
-
-        Log.i("B","on pause Activity" );
-
-    }
-
-    @Override
-
-    protected void onStop() {
-
-        super.onStop();
-
-        Log.i("B","on stop Activity" );
-
-    }
-
-    @Override
-
-    protected void onDestroy() {
-
-        super.onDestroy();
-
-        Log.i("B","on destroy Activity" );
-
-    }}
+}

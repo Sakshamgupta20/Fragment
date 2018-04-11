@@ -37,6 +37,7 @@ public class First extends Fragment {
             @Override
             public void onClick(View v) {
                 com.data(text.getText().toString());
+
             }
         });
     return rootView;
